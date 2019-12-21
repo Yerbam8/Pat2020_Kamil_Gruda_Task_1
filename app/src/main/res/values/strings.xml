@@ -2,4 +2,6 @@
     <string name="app_name">Simple Encoder</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="hello">Hello My Friend</string>
+    <string name="wprowad_tekst">Wprowadź tekst</string>
+    <string name="input">Input :</string>
 </resources>

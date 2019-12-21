@@ -10,14 +10,14 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="Elo"
+        android:text="@string/wprowad_tekst"
         android:textSize="40dp"/>
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="95dp"
-        android:text="Input :"
+        android:text="@string/input"
         android:textSize="35dp"
          />
 
@@ -40,10 +40,9 @@
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="false"
             android:layout_weight="0.5"
             android:text="Encode"
-            android:onClick="encodeText" />
+            android:onClick="codeText" />
 
         <Button
             android:id="@+id/button1"
@@ -51,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="Decode"
-            android:onClick="decodeText" />
+            android:onClick="codeText" />
     </LinearLayout>
 
 </RelativeLayout>

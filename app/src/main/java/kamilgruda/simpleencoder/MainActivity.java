@@ -4,15 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    TextView textView;
-    Button encode;
-    Button decode;
-    EditText editText;
 
 
     @Override
@@ -20,14 +15,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
-
-        textView = findViewById(R.id.textView1);
-        encode = findViewById(R.id.button);
-        decode = findViewById(R.id.button1);
-
-
-
-
     }
 
 
@@ -59,28 +46,38 @@ public class MainActivity extends AppCompatActivity {
         char[] tab = str.toCharArray();
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < str.length(); i += 2) {
-            int a = Integer.parseInt(String.valueOf(tab[i]));
+
+        for (int i = 0; i < str.length(); ) {
+            int a = 0;
+            while (Character.isDigit(tab[i])) {
+                a = Integer.parseInt(a + String.valueOf(tab[i]));
+                i++;
+
+            }
             while (a > 0) {
-                result.append(tab[i + 1]);
+                result.append(tab[i]);
                 a--;
             }
+            i++;
         }
         return String.valueOf(result);
     }
 
-
-    public void encodeText(View view) {
-        editText = findViewById(R.id.editText);
+    public void codeText(View view) {
+        EditText editText = findViewById(R.id.editText);
         String text = editText.getText().toString().trim();
         TextView textView = findViewById(R.id.textView1);
-        textView.setText(encodeText(text));
+
+        switch (view.getId()) {
+            case R.id.button:
+                textView.setText(encodeText(text));
+                break;
+            case R.id.button1:
+                textView.setText(decodeText(text));
+                break;
+        }
+
     }
 
-    public void decodeText(View view) {
-        editText = findViewById(R.id.editText);
-        String text = editText.getText().toString().trim();
-        TextView textView = findViewById(R.id.textView1);
-        textView.setText(decodeText(text));
-    }
+
 }
