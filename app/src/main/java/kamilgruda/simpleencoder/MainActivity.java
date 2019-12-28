@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     @Override
@@ -15,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_main);
+        Button encodeButton = findViewById(R.id.button);
+        Button decodeButton = findViewById(R.id.button1);
+        encodeButton.setOnClickListener(this);
+        decodeButton.setOnClickListener(this);
     }
 
 
@@ -63,18 +68,20 @@ public class MainActivity extends AppCompatActivity {
         return String.valueOf(result);
     }
 
-    public void codeText(View view) {
+
+    @Override
+    public void onClick(View v) {
         EditText editText = findViewById(R.id.editText);
         String text = editText.getText().toString().trim();
         TextView textView = findViewById(R.id.textView1);
-        if (view.getId()==R.id.button) {
-            textView.setText(encodeText(text));
-        }else if(view.getId()==R.id.button1) {
-            textView.setText(decodeText(text));
+
+        switch (v.getId()) {
+            case R.id.button:
+                textView.setText(encodeText(text));
+                break;
+            case R.id.button1:
+                textView.setText(decodeText(text));
+                break;
         }
-
-
     }
-
-
 }
