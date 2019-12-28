@@ -67,15 +67,12 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = findViewById(R.id.editText);
         String text = editText.getText().toString().trim();
         TextView textView = findViewById(R.id.textView1);
-
-        switch (view.getId()) {
-            case R.id.button:
-                textView.setText(encodeText(text));
-                break;
-            case R.id.button1:
-                textView.setText(decodeText(text));
-                break;
+        if (view.getId()==R.id.button) {
+            textView.setText(encodeText(text));
+        }else if(view.getId()==R.id.button1) {
+            textView.setText(decodeText(text));
         }
+
 
     }
 
